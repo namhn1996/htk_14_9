@@ -11,14 +11,14 @@ function TodoPage() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:6868/api/v1/todos")
+      .get("http://localhost:9999/api/v1/todos")
       .then((res) => setTodoList(res.data.todos))
       .catch((err) => console.log(err));
   }, [todoList]);
 
   const handleAddTodo = () => {
     axios
-      .post("http://localhost:6868/api/v1/todos", { name: todoName })
+      .post("http://localhost:9999/api/v1/todos", { name: todoName })
       .then((res) => {
         console.log(res.data);
       })
@@ -29,7 +29,7 @@ function TodoPage() {
 
   const handleChangeStatus = (id) => {
     axios
-      .put(`http://localhost:6868/api/v1/todos/${id}`, { status: "completed" })
+      .put(`http://localhost:9999/api/v1/todos/${id}`, { status: "completed" })
       .then((res) => {
         console.log(res.data);
       })
@@ -40,7 +40,7 @@ function TodoPage() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:6868/api/v1/todos/${id}`)
+      .delete(`http://localhost:9999/api/v1/todos/${id}`)
       .then((res) => {
         console.log(res.data);
       })
